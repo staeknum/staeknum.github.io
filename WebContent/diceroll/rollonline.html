@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<script type="text/javascript">
+	function changeDisabled() {
+		if (document.Type["DiceType"][4].checked) {
+			document.Type["text"].disabled = false;
+		} else {
+			document.Type["text"].disabled = true;
+		}
+	}
+	window.onload = changeDisabled;
+</script>
+<meta charset="utf-8">
+<title>Dice Rolling Project</title>
+<!-- 上のJavaScriptはググって出てきたパクリ -->
+
+</head>
+<body>
+	<h1>Dice Roll Project</h1>
+	<h2>Please select Dice Type</h2>
+	<table border="1">
+		<tr>
+			<th>Dice Type</th>
+			<td>
+				<form name="Type" method="post" action="RollOnline">
+					<input type="radio" name="DiceType" value="6" checked />Hexa_Hedron
+					<br> <input type="radio" name="DiceType" value="8" />Octa_Hedron
+					<br> <input type="radio" name="DiceType" value="12" />Dodeca_Hedron
+					<br> <input type="radio" name="DiceType" value="20" />Icosa_Hedron
+					<br> <input type="radio" name="DiceType" value="other"
+						id="radio-other" onClick="changeDisabled()"> <label
+						for="radio-other">Others. </label><br>
+					<p style="display: inline;">
+						<input type="text" name="text" size="1">_Hedron
+					</p>
+					<br> <br>Qty: <input type="text" name="countDiceQty"
+						size="2"> <br> <input type="submit" name="submit"
+						value="calc for DICE" /><br>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<th>submit</th>
+			<td><input type="reset" name="clear" value="Reset All" /></td>
+		</tr>
+	</table>
+</body>
+</html>
